@@ -1,6 +1,8 @@
 import { Flex, Text } from "@mantine/core";
-import ProjectsContainer from "../../../components/ProjectsContainer";
+import { useContext, useEffect, useRef } from "react";
 import workingGirl from "../../../assets/lotties/working-girl.json";
+import ProjectsContainer from "../../../components/ProjectsContainer";
+import { MouseOverSectionContext } from "../../../context";
 import { IconStyle } from "../Projects/projectStyles";
 
 const Contents = () => {
@@ -27,19 +29,43 @@ const Contents = () => {
 };
 
 const Profile = () => {
+  const { setMouseOverSection } = useContext(MouseOverSectionContext);
+  const profileRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseover = () => {
+      setMouseOverSection({
+        welcome: false,
+        pomodoro: false,
+        codeEditor: false,
+        sketchbook: false,
+        profile: true,
+      });
+    };
+
+    if (!profileRef.current) return;
+    profileRef.current.addEventListener("mouseover", handleMouseover);
+
+    return () => {
+      window.removeEventListener("mouseover", handleMouseover);
+    };
+  }, []);
+
   return (
-    <ProjectsContainer
-      justifyContents="flex-end"
-      alignItems="flex-start"
-      flexGap="30px"
-      backgroundColor="#ae93fa"
-      contents={<Contents />}
-      lottieFile={workingGirl}
-      lottieFileStyle={IconStyle}
-      styles={{
-        padding: "30px",
-      }}
-    />
+    <div ref={profileRef}>
+      <ProjectsContainer
+        justifyContents="flex-end"
+        alignItems="flex-start"
+        flexGap="30px"
+        backgroundColor="#ae93fa"
+        contents={<Contents />}
+        lottieFile={workingGirl}
+        lottieFileStyle={IconStyle}
+        styles={{
+          padding: "30px",
+        }}
+      />
+    </div>
   );
 };
 

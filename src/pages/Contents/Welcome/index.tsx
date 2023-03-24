@@ -25,26 +25,27 @@ const WelcomePage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleMouseMove = (event: any) => {
-      setMousePosition([event.clientX, event.clientY]);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleMouseMove = (event: MouseEvent) => {
+  //     setMousePosition([event.pageX, event.pageY]);
+  //     console.log("pos: ", event.pageX, event.pageY);
+  //   };
+  //   window.addEventListener("mousemove", handleMouseMove);
+  //   return () => {
+  //     window.removeEventListener("mousemove", handleMouseMove);
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    const element = cursorRef.current;
-    if (!element) return;
-    element.style.top = `${mousePosition[1]}px`;
-    element.style.left = `${mousePosition[0]}px`;
-  }, [mousePosition]);
+  // useEffect(() => {
+  //   const element = cursorRef.current;
+  //   if (!element) return;
+  //   element.style.top = `${mousePosition[1]}px`;
+  //   element.style.left = `${mousePosition[0]}px`;
+  // }, [mousePosition]);
 
   return (
-    <Box ref={containerRef}>
-      <div ref={cursorRef} className="movingCircle"></div>
+    <Box ref={containerRef} sx={{ height: "120vh" }}>
+      {/* <div ref={cursorRef} className="movingCircle"></div> */}
       <Flex justify="center" align="center">
         <div style={welcomTextContainer}>
           <b className="typing">Welcome</b>
