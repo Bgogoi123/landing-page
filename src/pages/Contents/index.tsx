@@ -55,6 +55,9 @@ const Contents = () => {
       element.classList.remove("movingCircle");
       element.classList.remove("profileCursor");
       element.classList.add("pomodoroCursor");
+      // element.style.padding = "2.5em";
+      // element.style.border = "3px solid #fff";
+      // element.style.marginLeft = "-35px";
       setCursorStyle({
         cursor: `url(${circle}) 10 20, pointer`,
       });
@@ -67,8 +70,6 @@ const Contents = () => {
       element.classList.add("profileCursor");
       setCursorStyle({
         cursor: `url(${circle}) 10 20, pointer`,
-        border: "2px solid red",
-        padding: "2em",
       });
     }
   }, [mouseOverSection]);

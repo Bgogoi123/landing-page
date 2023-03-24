@@ -8,7 +8,6 @@ import {
   MouseOverSectionContext,
   MousePositionContext,
 } from "../../../context";
-import circle from "../../../assets/images/circle.svg";
 
 const Contents = () => {
   const { mousePosition, setMousePosition } = useContext(MousePositionContext);
