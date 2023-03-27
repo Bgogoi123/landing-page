@@ -8,7 +8,10 @@ import network from "../../../assets/lotties/network.json";
 import notes from "../../../assets/lotties/notes.json";
 import reactLogo from "../../../assets/lotties/react-logo.json";
 
-import { MousePositionContext } from "../../../context";
+import {
+  MouseOverSectionContext,
+  MousePositionContext,
+} from "../../../context";
 import "../../animations.css";
 import {
   alarmClockStyles,
@@ -21,31 +24,31 @@ import {
 } from "../styles";
 
 const WelcomePage = () => {
-  const { mousePosition, setMousePosition } = useContext(MousePositionContext);
+  const { setMouseOverSection } = useContext(MouseOverSectionContext);
+
   const containerRef = useRef<HTMLDivElement>(null);
-  const cursorRef = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   const handleMouseMove = (event: MouseEvent) => {
-  //     setMousePosition([event.pageX, event.pageY]);
-  //     console.log("pos: ", event.pageX, event.pageY);
-  //   };
-  //   window.addEventListener("mousemove", handleMouseMove);
-  //   return () => {
-  //     window.removeEventListener("mousemove", handleMouseMove);
-  //   };
-  // }, []);
+  useEffect(() => {
+    const handleMouseover = () => {
+      setMouseOverSection({
+        welcome: true,
+        pomodoro: false,
+        codeEditor: false,
+        sketchbook: false,
+        profile: false,
+      });
+    };
 
-  // useEffect(() => {
-  //   const element = cursorRef.current;
-  //   if (!element) return;
-  //   element.style.top = `${mousePosition[1]}px`;
-  //   element.style.left = `${mousePosition[0]}px`;
-  // }, [mousePosition]);
+    if (!containerRef.current) return;
+    containerRef.current.addEventListener("mouseover", handleMouseover);
+
+    return () => {
+      window.removeEventListener("mouseover", handleMouseover);
+    };
+  }, []);
 
   return (
     <Box ref={containerRef} sx={{ height: "120vh" }}>
-      {/* <div ref={cursorRef} className="movingCircle"></div> */}
       <Flex justify="center" align="center">
         <div style={welcomTextContainer}>
           <b className="typing">Welcome</b>

@@ -1,9 +1,11 @@
 import { CSSObject } from "@mantine/core";
 
 export const projectsContainer: CSSObject = {
-  border: "5px solid #fff",
-  borderTopRightRadius: "20px",
-  borderBottomLeftRadius: "20px",
+  // border: "5px solid #fff",
+  // borderTopRightRadius: "20px",
+  // borderBottomLeftRadius: "20px",
+  borderTop: "1px solid #fff",
+  borderBottom: "5px solid #fff",
   transitionDuration: "800ms",
   padding: "10px",
   color: "#fff",
@@ -11,6 +13,7 @@ export const projectsContainer: CSSObject = {
   "&:hover": {
     transform: "scale(1.03)",
     transitionDuration: "800ms",
+    borderBottom: "1px solid #fff",
   },
 };
 

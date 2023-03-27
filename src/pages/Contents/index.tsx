@@ -1,10 +1,14 @@
 import { Flex } from "@mantine/core";
+import Lottie from "lottie-react";
 import { useEffect, useState, useRef } from "react";
 import { MouseOverSectionContext, MousePositionContext } from "../../context";
 import Profile from "./Profile";
 import Projects from "./Projects";
 import WelcomePage from "./Welcome";
 import circle from "../../assets/images/circle.svg";
+import code from "../../assets/images/code.svg";
+import brush from "../../assets/images/brush.svg";
+import "../animations.css";
 
 const Contents = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -36,15 +40,12 @@ const Contents = () => {
   }, []);
 
   useEffect(() => {
-    // console.log("y - ", mousePosition[1]);
     if (!element) return;
-    // element.classList.add("movingCircle");
     element.style.top = `${mousePosition[1]}px`;
     element.style.left = `${mousePosition[0]}px`;
   }, [mousePosition]);
 
   useEffect(() => {
-    console.log("mouseOverSection", mouseOverSection.profile);
     if (!element) return;
     if (mouseOverSection.welcome) {
       element.classList.add("movingCircle");
@@ -54,12 +55,36 @@ const Contents = () => {
     if (mouseOverSection.pomodoro) {
       element.classList.remove("movingCircle");
       element.classList.remove("profileCursor");
+      element.classList.remove("codeEditorCursor");
+      element.classList.remove("codeEditorCursor");
+      element.classList.remove("sketchbookCursor");
       element.classList.add("pomodoroCursor");
-      // element.style.padding = "2.5em";
-      // element.style.border = "3px solid #fff";
-      // element.style.marginLeft = "-35px";
       setCursorStyle({
         cursor: `url(${circle}) 10 20, pointer`,
+      });
+    }
+
+    // mouse over code editor
+    if (mouseOverSection.codeEditor) {
+      element.classList.remove("movingCircle");
+      element.classList.remove("profileCursor");
+      element.classList.remove("pomodoroCursor");
+      element.classList.remove("sketchbookCursor");
+      element.classList.add("codeEditorCursor");
+      setCursorStyle({
+        cursor: `url(${code}) 10 20, pointer`,
+      });
+    }
+
+    // mouse over sketchbook
+    if (mouseOverSection.sketchbook) {
+      element.classList.remove("movingCircle");
+      element.classList.remove("profileCursor");
+      element.classList.remove("pomodoroCursor");
+      element.classList.remove("codeEditorCursor");
+      element.classList.add("sketchbookCursor");
+      setCursorStyle({
+        cursor: `url(${brush}) 10 20, pointer`,
       });
     }
 
@@ -67,6 +92,8 @@ const Contents = () => {
     if (mouseOverSection.profile) {
       element.classList.remove("pomodoroCursor");
       element.classList.remove("movingCircle");
+      element.classList.remove("codeEditorCursor");
+      element.classList.remove("sketchbookCursor");
       element.classList.add("profileCursor");
       setCursorStyle({
         cursor: `url(${circle}) 10 20, pointer`,
@@ -81,9 +108,21 @@ const Contents = () => {
       >
         <Flex direction="column" style={cursorStyle}>
           <div ref={cursorRef} className="movingCircle"></div>
+
           <WelcomePage />
           <Projects />
           <Profile />
+          <div
+            style={{
+              backgroundColor: "#4e388f",
+              padding: "10px",
+              height: "100px",
+              color: "#fff",
+              textAlign: "center",
+            }}
+          >
+            Temp Footer
+          </div>
         </Flex>
       </MouseOverSectionContext.Provider>
     </MousePositionContext.Provider>

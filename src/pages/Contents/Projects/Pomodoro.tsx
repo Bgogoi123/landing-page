@@ -1,19 +1,12 @@
-import { useEffect, useContext, useRef } from "react";
 import { Button, Flex, Text } from "@mantine/core";
+import { useContext, useEffect, useRef } from "react";
 import clock from "../../../assets/lotties/clock.json";
 import ProjectsContainer from "../../../components/ProjectsContainer";
+import { MouseOverSectionContext } from "../../../context";
 import "../../animations.css";
 import { IconStyle } from "./projectStyles";
-import {
-  MouseOverSectionContext,
-  MousePositionContext,
-} from "../../../context";
 
 const Contents = () => {
-  const { mousePosition, setMousePosition } = useContext(MousePositionContext);
-
-  useEffect(() => {}, [mousePosition]);
-
   return (
     <Flex direction="column" gap="10px">
       <Text className="projectText">Pomodoro ( With Task Management )</Text>

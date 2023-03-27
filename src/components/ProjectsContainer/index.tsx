@@ -24,7 +24,7 @@ const ProjectsContainer = ({
         {
           backgroundColor: backgroundColor ?? "#9d7ff5",
         },
-        styles,
+        // styles,
       ]}
     >
       {justifyContents === "flex-end" && (

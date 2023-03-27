@@ -1,4 +1,4 @@
-import { Box, Flex } from "@mantine/core";
+import { Flex } from "@mantine/core";
 import { useState } from "react";
 import "./App.css";
 import { TabsContext } from "./context";
@@ -15,7 +15,12 @@ function App() {
         setTab,
       }}
     >
-      <Flex direction="column">
+      <Flex
+        direction="column"
+        sx={{
+          overflowX: "hidden",
+        }}
+      >
         <TopNavigation />
         <Contents />
       </Flex>

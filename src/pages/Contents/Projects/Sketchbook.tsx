@@ -2,6 +2,8 @@ import ProjectsContainer from "../../../components/ProjectsContainer";
 import digitalPaint from "../../../assets/lotties/digital-paint.json";
 import { Button, Flex, Text } from "@mantine/core";
 import { IconStyle } from "./projectStyles";
+import { useContext, useEffect, useRef } from "react";
+import { MouseOverSectionContext } from "../../../context";
 
 const Contents = () => {
   return (
@@ -21,13 +23,37 @@ const Contents = () => {
 };
 
 const Sketchbook = () => {
+  const sketchbookRef = useRef<HTMLDivElement>(null);
+  const { setMouseOverSection } = useContext(MouseOverSectionContext);
+
+  useEffect(() => {
+    const handleMouseover = () => {
+      setMouseOverSection({
+        welcome: false,
+        pomodoro: false,
+        codeEditor: false,
+        sketchbook: true,
+        profile: false,
+      });
+    };
+
+    if (!sketchbookRef.current) return;
+    sketchbookRef.current.addEventListener("mouseover", handleMouseover);
+
+    return () => {
+      window.removeEventListener("mouseover", handleMouseover);
+    };
+  }, []);
+
   return (
-    <ProjectsContainer
-      justifyContents="flex-start"
-      lottieFile={digitalPaint}
-      lottieFileStyle={IconStyle}
-      contents={<Contents />}
-    />
+    <div ref={sketchbookRef}>
+      <ProjectsContainer
+        justifyContents="flex-start"
+        lottieFile={digitalPaint}
+        lottieFileStyle={IconStyle}
+        contents={<Contents />}
+      />
+    </div>
   );
 };
 
