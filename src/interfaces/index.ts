@@ -9,13 +9,15 @@ export interface IProjectsContainerProps {
   };
   backgroundColor?: string;
   contents: JSX.Element;
-  lottieFile: unknown;
-  lottieFileStyle: React.CSSProperties;
+  lottieFile?: unknown;
+  lottieFileStyle?: React.CSSProperties;
+  disableHover?: boolean;
 }
 
 export interface IHandleCursorAnimation {
   element: HTMLDivElement | null;
   mouseOverSection: {
+    topNavigation: boolean;
     welcome: boolean;
     pomodoro: boolean;
     codeEditor: boolean;
@@ -31,6 +33,7 @@ export interface IHandleCursorAnimation {
 export interface IHandleMouseOver {
   setMouseOverSection: (
     value: React.SetStateAction<{
+      topNavigation: boolean;
       welcome: boolean;
       pomodoro: boolean;
       codeEditor: boolean;

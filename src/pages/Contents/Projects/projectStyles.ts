@@ -1,12 +1,16 @@
 import { CSSObject } from "@mantine/core";
 
-export const projectsContainer: CSSObject = {
+export const container: CSSObject = {
   borderTop: "1px solid #fff",
   borderBottom: "1px solid #fff",
   transitionDuration: "800ms",
   padding: "10px",
   backgroundColor: "#9d7ff5",
   color: "#fff",
+};
+
+export const projectsContainer: CSSObject = {
+  ...container,
 
   "&:hover": {
     transform: "scale(1.03)",

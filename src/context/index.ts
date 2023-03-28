@@ -12,6 +12,7 @@ type TMousePositonContext = {
 
 type TMouseOverSectionContext = {
   mouseOverSection: {
+    topNavigation: boolean;
     welcome: boolean;
     pomodoro: boolean;
     codeEditor: boolean;
@@ -20,6 +21,7 @@ type TMouseOverSectionContext = {
   };
   setMouseOverSection: React.Dispatch<
     React.SetStateAction<{
+      topNavigation: boolean;
       welcome: boolean;
       pomodoro: boolean;
       codeEditor: boolean;
@@ -41,6 +43,7 @@ export const MousePositionContext = createContext<TMousePositonContext>({
 
 export const MouseOverSectionContext = createContext<TMouseOverSectionContext>({
   mouseOverSection: {
+    topNavigation: false,
     welcome: false,
     pomodoro: false,
     codeEditor: false,

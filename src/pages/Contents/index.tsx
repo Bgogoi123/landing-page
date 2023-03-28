@@ -1,5 +1,5 @@
 import { Flex } from "@mantine/core";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import brush from "../../assets/images/brush.svg";
 import circle from "../../assets/images/circle.svg";
 import code from "../../assets/images/code.svg";
@@ -11,6 +11,7 @@ import {
   handleMouseMove,
   handleMouseOverWelcome,
 } from "./functions";
+import Introduction from "./Introduction";
 import Profile from "./Profile";
 import Projects from "./Projects";
 import WelcomePage from "./Welcome";
@@ -23,19 +24,22 @@ const Contents = () => {
   const element = cursorRef.current;
   const [cursorStyle, setCursorStyle] = useState<React.CSSProperties>({});
   const [mousePosition, setMousePosition] = useState<[number, number]>([0, 0]);
-  const [mouseOverSection, setMouseOverSection] = useState<{
-    welcome: boolean;
-    pomodoro: boolean;
-    codeEditor: boolean;
-    sketchbook: boolean;
-    profile: boolean;
-  }>({
-    welcome: false,
-    pomodoro: false,
-    codeEditor: false,
-    sketchbook: false,
-    profile: false,
-  });
+  const { mouseOverSection, setMouseOverSection } = useContext(
+    MouseOverSectionContext
+  );
+  // const [mouseOverSection, setMouseOverSection] = useState<{
+  //   welcome: boolean;
+  //   pomodoro: boolean;
+  //   codeEditor: boolean;
+  //   sketchbook: boolean;
+  //   profile: boolean;
+  // }>({
+  //   welcome: false,
+  //   pomodoro: false,
+  //   codeEditor: false,
+  //   sketchbook: false,
+  //   profile: false,
+  // });
 
   useEffect(() => {
     handleMouseMove({ setMousePosition });
@@ -67,21 +71,18 @@ const Contents = () => {
 
   return (
     <MousePositionContext.Provider value={{ mousePosition, setMousePosition }}>
-      <MouseOverSectionContext.Provider
-        value={{ mouseOverSection, setMouseOverSection }}
-      >
-        <Flex direction="column" style={cursorStyle}>
-          <div ref={cursorRef} className="movingCircle"></div>
+      <Flex direction="column" style={cursorStyle}>
+        <div ref={cursorRef} className="movingCircle"></div>
 
-          <div ref={welcomeContainerRef}>
-            <WelcomePage />
-            <Waves />
-          </div>
-          <Projects />
-          <Profile />
-          <Footer />
-        </Flex>
-      </MouseOverSectionContext.Provider>
+        <div ref={welcomeContainerRef}>
+          <WelcomePage />
+          <Waves />
+        </div>
+        <Introduction />
+        <Projects />
+        <Profile />
+        <Footer />
+      </Flex>
     </MousePositionContext.Provider>
   );
 };

@@ -1,7 +1,10 @@
 import { Flex } from "@mantine/core";
 import Lottie from "lottie-react";
 import { IProjectsContainerProps } from "../../interfaces";
-import { projectsContainer } from "../../pages/Contents/Projects/projectStyles";
+import {
+  container,
+  projectsContainer,
+} from "../../pages/Contents/Projects/projectStyles";
 
 const ProjectsContainer = ({
   justifyContents,
@@ -12,6 +15,7 @@ const ProjectsContainer = ({
   contents,
   lottieFile,
   lottieFileStyle,
+  disableHover,
 }: IProjectsContainerProps) => {
   return (
     <Flex
@@ -19,7 +23,7 @@ const ProjectsContainer = ({
       justify={justifyContents}
       align={alignItems ?? "center"}
       gap={flexGap ?? "0"}
-      sx={[projectsContainer]}
+      sx={disableHover ? container : projectsContainer}
     >
       {justifyContents === "flex-end" && (
         <>
@@ -32,7 +36,7 @@ const ProjectsContainer = ({
         </>
       )}
 
-      {justifyContents === "flex-start" && (
+      {(justifyContents === "flex-start" || justifyContents === "center") && (
         <>
           <Lottie
             animationData={lottieFile}

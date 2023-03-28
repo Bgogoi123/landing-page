@@ -36,7 +36,7 @@ const Pomodoro = () => {
   }, []);
 
   return (
-    <div ref={promodoroRef} style={{ marginTop: "2em" }}>
+    <div ref={promodoroRef}>
       <ProjectsContainer
         contents={<Contents />}
         justifyContents="flex-start"

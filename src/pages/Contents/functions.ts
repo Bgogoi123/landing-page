@@ -1,5 +1,20 @@
 import { IHandleCursorAnimation, IHandleMouseOver } from "../../interfaces";
 
+export const handleRemoveCursorAnimation = ({
+  element,
+}: {
+  element: HTMLDivElement | null;
+}) => {
+  if (!element) return;
+  element.classList.remove("movingCircle");
+  element.classList.remove("profileCursor");
+  element.classList.remove("codeEditorCursor");
+  element.classList.remove("codeEditorCursor");
+  element.classList.remove("sketchbookCursor");
+  element.classList.remove("pomodoroCursor");
+  element.style.cursor = "default";
+};
+
 export const handleCursorAnimation = ({
   element,
   mouseOverSection,
@@ -92,6 +107,7 @@ export const handleMouseOverWelcome = ({
 }: IHandleMouseOver) => {
   const onMouseOver = () => {
     setMouseOverSection({
+      topNavigation: false,
       welcome: true,
       pomodoro: false,
       codeEditor: false,
@@ -114,6 +130,7 @@ export const handleMouseOverPomodoro = ({
 }: IHandleMouseOver) => {
   const onMouseOver = () => {
     setMouseOverSection({
+      topNavigation: false,
       welcome: false,
       pomodoro: true,
       codeEditor: false,
@@ -126,6 +143,7 @@ export const handleMouseOverPomodoro = ({
   elementRef.current.addEventListener("mouseover", onMouseOver);
   elementRef.current.addEventListener("mouseout", () => {
     setMouseOverSection({
+      topNavigation: false,
       welcome: true,
       pomodoro: false,
       codeEditor: false,
@@ -145,6 +163,7 @@ export const handleMouseOverCodeEditor = ({
 }: IHandleMouseOver) => {
   const onMouseOver = () => {
     setMouseOverSection({
+      topNavigation: false,
       welcome: false,
       pomodoro: false,
       codeEditor: true,
@@ -167,6 +186,7 @@ export const handleMouseOverSketchbook = ({
 }: IHandleMouseOver) => {
   const onMouseOver = () => {
     setMouseOverSection({
+      topNavigation: false,
       welcome: false,
       pomodoro: false,
       codeEditor: false,
@@ -189,6 +209,7 @@ export const handleMouseOverProfile = ({
 }: IHandleMouseOver) => {
   const onMouseOver = () => {
     setMouseOverSection({
+      topNavigation: false,
       welcome: false,
       pomodoro: false,
       codeEditor: false,
