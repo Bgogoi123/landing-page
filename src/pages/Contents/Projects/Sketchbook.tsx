@@ -4,6 +4,7 @@ import { Button, Flex, Text } from "@mantine/core";
 import { IconStyle } from "./projectStyles";
 import { useContext, useEffect, useRef } from "react";
 import { MouseOverSectionContext } from "../../../context";
+import { handleMouseOverSketchbook } from "../functions";
 
 const Contents = () => {
   return (
@@ -27,22 +28,10 @@ const Sketchbook = () => {
   const { setMouseOverSection } = useContext(MouseOverSectionContext);
 
   useEffect(() => {
-    const handleMouseover = () => {
-      setMouseOverSection({
-        welcome: false,
-        pomodoro: false,
-        codeEditor: false,
-        sketchbook: true,
-        profile: false,
-      });
-    };
-
-    if (!sketchbookRef.current) return;
-    sketchbookRef.current.addEventListener("mouseover", handleMouseover);
-
-    return () => {
-      window.removeEventListener("mouseover", handleMouseover);
-    };
+    handleMouseOverSketchbook({
+      elementRef: sketchbookRef,
+      setMouseOverSection,
+    });
   }, []);
 
   return (

@@ -4,6 +4,7 @@ import clock from "../../../assets/lotties/clock.json";
 import ProjectsContainer from "../../../components/ProjectsContainer";
 import { MouseOverSectionContext } from "../../../context";
 import "../../animations.css";
+import { handleMouseOverPomodoro } from "../functions";
 import { IconStyle } from "./projectStyles";
 
 const Contents = () => {
@@ -28,31 +29,10 @@ const Pomodoro = () => {
   const promodoroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleMouseover = () => {
-      setMouseOverSection({
-        welcome: false,
-        pomodoro: true,
-        codeEditor: false,
-        sketchbook: false,
-        profile: false,
-      });
-    };
-
-    if (!promodoroRef.current) return;
-    promodoroRef.current.addEventListener("mouseover", handleMouseover);
-    promodoroRef.current.addEventListener("mouseout", () => {
-      setMouseOverSection({
-        welcome: true,
-        pomodoro: false,
-        codeEditor: false,
-        sketchbook: false,
-        profile: false,
-      });
+    handleMouseOverPomodoro({
+      setMouseOverSection,
+      elementRef: promodoroRef,
     });
-
-    return () => {
-      window.removeEventListener("mouseover", handleMouseover);
-    };
   }, []);
 
   return (

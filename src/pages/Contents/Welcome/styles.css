@@ -1,3 +1,13 @@
+.welcomeContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  width: 80%;
+  background-color: #fff;
+}
+
 .waveOne {
   position: absolute;
   pointer-events: none;

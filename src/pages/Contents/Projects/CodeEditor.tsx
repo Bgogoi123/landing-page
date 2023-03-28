@@ -3,6 +3,7 @@ import { useContext, useEffect, useRef } from "react";
 import codeEditor from "../../../assets/lotties/codeEditor.json";
 import ProjectsContainer from "../../../components/ProjectsContainer";
 import { MouseOverSectionContext } from "../../../context";
+import { handleMouseOverCodeEditor } from "../functions";
 import { codeEditorIcon } from "./projectStyles";
 
 const Contents = () => {
@@ -29,22 +30,10 @@ const CodeEditor = () => {
   const { setMouseOverSection } = useContext(MouseOverSectionContext);
 
   useEffect(() => {
-    const handleMouseover = () => {
-      setMouseOverSection({
-        welcome: false,
-        pomodoro: false,
-        codeEditor: true,
-        sketchbook: false,
-        profile: false,
-      });
-    };
-
-    if (!codeEditorRef.current) return;
-    codeEditorRef.current.addEventListener("mouseover", handleMouseover);
-
-    return () => {
-      window.removeEventListener("mouseover", handleMouseover);
-    };
+    handleMouseOverCodeEditor({
+      setMouseOverSection,
+      elementRef: codeEditorRef,
+    });
   }, []);
 
   return (

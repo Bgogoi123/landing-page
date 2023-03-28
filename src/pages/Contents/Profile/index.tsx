@@ -5,6 +5,7 @@ import codeEditor from "../../../assets/lotties/codeEditor.json";
 import ProjectsContainer from "../../../components/ProjectsContainer";
 import { MouseOverSectionContext } from "../../../context";
 import { codeEditorIcon, IconStyle } from "../Projects/projectStyles";
+import { handleMouseOverProfile } from "../functions";
 
 const Contents = () => {
   return (
@@ -19,87 +20,23 @@ const Contents = () => {
         working as a social media manager for the past 7 years. I’ve been
         working as a social media manager for the past 7 years.
       </Text>
-      {/* <Flex gap="10px">
-        <Button variant="light" color="violet" className="githubLinkButton">
-          Github Link
-        </Button>
-        <Button variant="light" color="violet" className="demoLinkButton">
-          Demo
-        </Button>
-      </Flex> */}
     </Flex>
   );
 };
 
-// const Contents = () => {
-//   return (
-//     <Flex
-//       direction="column"
-//       gap="20px"
-//       sx={{
-//         width: "50%",
-//       }}
-//     >
-//       <Text className="projectText" sx={{ textAlign: "right" }}>
-//         Hello, I am Samantha.
-//       </Text>
-//       <Text sx={{ fontSize: "20px", textAlign: "right" }}>
-//         I’ve been working as a social media manager for the past 7 years. I’ve
-//         been working as a social media manager for the past 7 years. I’ve been
-//         working as a social media manager for the past 7 years. I’ve been
-//         working as a social media manager for the past 7 years. I’ve been
-//         working as a social media manager for the past 7 years.
-//       </Text>
-//     </Flex>
-//   );
-// };
-
 const Profile = () => {
-  const codeEditorRef = useRef<HTMLDivElement>(null);
+  const profileRef = useRef<HTMLDivElement>(null);
   const { setMouseOverSection } = useContext(MouseOverSectionContext);
-  // const { setMouseOverSection } = useContext(MouseOverSectionContext);
-  // const profileRef = useRef<HTMLDivElement>(null);
-
-  // useEffect(() => {
-  //   const handleMouseover = () => {
-  //     setMouseOverSection({
-  //       welcome: false,
-  //       pomodoro: false,
-  //       codeEditor: false,
-  //       sketchbook: false,
-  //       profile: true,
-  //     });
-  //   };
-
-  //   if (!profileRef.current) return;
-  //   profileRef.current.addEventListener("mouseover", handleMouseover);
-
-  //   return () => {
-  //     window.removeEventListener("mouseover", handleMouseover);
-  //   };
-  // }, []);
 
   useEffect(() => {
-    const handleMouseover = () => {
-      setMouseOverSection({
-        welcome: false,
-        pomodoro: false,
-        codeEditor: false,
-        sketchbook: false,
-        profile: true,
-      });
-    };
-
-    if (!codeEditorRef.current) return;
-    codeEditorRef.current.addEventListener("mouseover", handleMouseover);
-
-    return () => {
-      window.removeEventListener("mouseover", handleMouseover);
-    };
+    handleMouseOverProfile({
+      elementRef: profileRef,
+      setMouseOverSection,
+    });
   }, []);
 
   return (
-    <div ref={codeEditorRef}>
+    <div ref={profileRef}>
       <ProjectsContainer
         lottieFile={workingGirl}
         lottieFileStyle={codeEditorIcon}
@@ -107,20 +44,6 @@ const Profile = () => {
         justifyContents="flex-end"
       />
     </div>
-    // <div ref={profileRef}>
-    //   <ProjectsContainer
-    //     justifyContents="flex-end"
-    //     alignItems="flex-start"
-    //     flexGap="30px"
-    //     backgroundColor="#ae93fa"
-    //     contents={<Contents />}
-    //     lottieFile={workingGirl}
-    //     lottieFileStyle={IconStyle}
-    //     styles={{
-    //       padding: "30px",
-    //     }}
-    //   />
-    // </div>
   );
 };
 
