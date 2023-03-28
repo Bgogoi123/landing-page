@@ -84,9 +84,9 @@ const Profile = () => {
       setMouseOverSection({
         welcome: false,
         pomodoro: false,
-        codeEditor: true,
+        codeEditor: false,
         sketchbook: false,
-        profile: false,
+        profile: true,
       });
     };
 

@@ -1,19 +1,18 @@
 import { CSSObject } from "@mantine/core";
 
 export const projectsContainer: CSSObject = {
-  // border: "5px solid #fff",
-  // borderTopRightRadius: "20px",
-  // borderBottomLeftRadius: "20px",
+  // position: "relative",
   borderTop: "1px solid #fff",
-  borderBottom: "5px solid #fff",
+  borderBottom: "1px solid #fff",
   transitionDuration: "800ms",
   padding: "10px",
+  backgroundColor: "#9d7ff5",
   color: "#fff",
 
   "&:hover": {
     transform: "scale(1.03)",
     transitionDuration: "800ms",
-    borderBottom: "1px solid #fff",
+    zIndex: 99,
   },
 };
 
@@ -21,6 +20,7 @@ export const projectsContainer: CSSObject = {
 export const IconStyle: React.CSSProperties = {
   width: "20%",
   height: "20%",
+  zIndex: 999,
 };
 
 export const codeEditorIcon: React.CSSProperties = {

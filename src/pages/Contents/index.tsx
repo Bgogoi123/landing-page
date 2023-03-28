@@ -1,17 +1,20 @@
 import { Flex } from "@mantine/core";
-import Lottie from "lottie-react";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import brush from "../../assets/images/brush.svg";
+import circle from "../../assets/images/circle.svg";
+import code from "../../assets/images/code.svg";
 import { MouseOverSectionContext, MousePositionContext } from "../../context";
+import "../animations.css";
+import Footer from "../Footer";
 import Profile from "./Profile";
 import Projects from "./Projects";
 import WelcomePage from "./Welcome";
-import circle from "../../assets/images/circle.svg";
-import code from "../../assets/images/code.svg";
-import brush from "../../assets/images/brush.svg";
-import "../animations.css";
+import Waves from "./Welcome/Waves";
 
 const Contents = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const element = cursorRef.current;
   const [cursorStyle, setCursorStyle] = useState<React.CSSProperties>({});
   const [mousePosition, setMousePosition] = useState<[number, number]>([0, 0]);
@@ -48,7 +51,15 @@ const Contents = () => {
   useEffect(() => {
     if (!element) return;
     if (mouseOverSection.welcome) {
+      element.classList.remove("profileCursor");
+      element.classList.remove("codeEditorCursor");
+      element.classList.remove("codeEditorCursor");
+      element.classList.remove("sketchbookCursor");
+      element.classList.remove("pomodoroCursor");
       element.classList.add("movingCircle");
+      setCursorStyle({
+        cursor: "none",
+      });
     }
 
     // mouse over pomodoro
@@ -101,6 +112,25 @@ const Contents = () => {
     }
   }, [mouseOverSection]);
 
+  useEffect(() => {
+    const handleMouseover = () => {
+      setMouseOverSection({
+        welcome: true,
+        pomodoro: false,
+        codeEditor: false,
+        sketchbook: false,
+        profile: false,
+      });
+    };
+
+    if (!containerRef.current) return;
+    containerRef.current.addEventListener("mouseover", handleMouseover);
+
+    return () => {
+      window.removeEventListener("mouseover", handleMouseover);
+    };
+  }, []);
+
   return (
     <MousePositionContext.Provider value={{ mousePosition, setMousePosition }}>
       <MouseOverSectionContext.Provider
@@ -109,20 +139,13 @@ const Contents = () => {
         <Flex direction="column" style={cursorStyle}>
           <div ref={cursorRef} className="movingCircle"></div>
 
-          <WelcomePage />
+          <div ref={containerRef}>
+            <WelcomePage />
+            <Waves />
+          </div>
           <Projects />
           <Profile />
-          <div
-            style={{
-              backgroundColor: "#4e388f",
-              padding: "10px",
-              height: "100px",
-              color: "#fff",
-              textAlign: "center",
-            }}
-          >
-            Temp Footer
-          </div>
+          <Footer />
         </Flex>
       </MouseOverSectionContext.Provider>
     </MousePositionContext.Provider>

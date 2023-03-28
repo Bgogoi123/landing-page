@@ -1,0 +1,41 @@
+.waveOne {
+  position: absolute;
+  pointer-events: none;
+  z-index: 99;
+  animation-name: swell, wave;
+  animation-duration: 10s, 20s;
+  animation-timing-function: linear, linear;
+  animation-iteration-count: infinite, infinite;
+}
+
+.waveTwo {
+  position: absolute;
+  z-index: 99;
+  pointer-events: none;
+  animation-name: swell, wave;
+  animation-duration: 20s, 30s;
+  animation-timing-function: linear, linear;
+  animation-iteration-count: infinite, infinite;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: -300px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
+@keyframes swell {
+  0%,
+  100% {
+    transform: translate3d(0px, 0, 0);
+  }
+  50% {
+    transform: translate3d(3px, 0, 0);
+  }
+}

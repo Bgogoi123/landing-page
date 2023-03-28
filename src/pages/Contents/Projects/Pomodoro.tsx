@@ -40,6 +40,15 @@ const Pomodoro = () => {
 
     if (!promodoroRef.current) return;
     promodoroRef.current.addEventListener("mouseover", handleMouseover);
+    promodoroRef.current.addEventListener("mouseout", () => {
+      setMouseOverSection({
+        welcome: true,
+        pomodoro: false,
+        codeEditor: false,
+        sketchbook: false,
+        profile: false,
+      });
+    });
 
     return () => {
       window.removeEventListener("mouseover", handleMouseover);
@@ -47,10 +56,7 @@ const Pomodoro = () => {
   }, []);
 
   return (
-    <div style={{ position: "relative" }} ref={promodoroRef}>
-      {/* animation not working */}
-      {/* <img src={curve} className="squeares" /> */}
-
+    <div ref={promodoroRef} style={{ marginTop: "2em" }}>
       <ProjectsContainer
         contents={<Contents />}
         justifyContents="flex-start"

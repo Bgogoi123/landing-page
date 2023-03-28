@@ -19,13 +19,7 @@ const ProjectsContainer = ({
       justify={justifyContents}
       align={alignItems ?? "center"}
       gap={flexGap ?? "0"}
-      sx={[
-        projectsContainer,
-        {
-          backgroundColor: backgroundColor ?? "#9d7ff5",
-        },
-        // styles,
-      ]}
+      sx={[projectsContainer]}
     >
       {justifyContents === "flex-end" && (
         <>

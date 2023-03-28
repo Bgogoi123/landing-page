@@ -14,6 +14,7 @@ const TopNavigation = () => {
         padding: "10px",
         backgroundColor: "#6b49cc",
         color: "#fff",
+        zIndex: 999,
       }}
     >
       <div>

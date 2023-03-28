@@ -49,7 +49,7 @@ export const networkStyles: React.CSSProperties = {
 
 // welcome text styles
 export const welcomTextContainer: React.CSSProperties = {
-  marginTop: "10em",
+  // marginTop: "10em",
   // width: "auto",
   display: "inline-block",
 };

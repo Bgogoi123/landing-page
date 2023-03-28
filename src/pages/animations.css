@@ -18,9 +18,12 @@
 }
 
 .projectText {
+  position: relative;
   font-size: 40px;
   line-height: 100px;
   animation: fadeIn 2s linear;
+  color: #000;
+  z-index: 999 !important;
 }
 
 .githubLinkButton {
@@ -39,7 +42,8 @@
   backdrop-filter: blur(1px);
   border-radius: 100%;
   padding: 10px !important;
-  z-index: 99;
+  z-index: 9999;
+  pointer-events: none;
 
   background-image: linear-gradient(
     to right bottom,
@@ -60,7 +64,7 @@
   pointer-events: none;
   background-color: #fff;
   padding: 2em;
-  z-index: 99;
+  z-index: 9999;
   opacity: 0.2;
 }
 
@@ -72,12 +76,12 @@
   pointer-events: none;
   background-color: blueviolet;
   padding: 2em;
-  z-index: 99;
+  z-index: 9999;
   opacity: 0.2;
 }
 
 .sketchbookCursor {
-  z-index: 99;
+  z-index: 9999;
   position: absolute;
   margin-top: -40px;
   margin-left: -35px;
@@ -90,7 +94,7 @@
 
 .sketchbookCursor::after {
   content: "";
-  z-index: 99;
+  z-index: 9999;
   position: absolute;
   margin-top: -27px;
   margin-left: -27px;
@@ -98,7 +102,6 @@
   pointer-events: none;
   background-color: rgb(236, 216, 255);
   padding: 2em;
-  /* animation: moveRound 10.002s linear infinite; */
 }
 
 .profileCursor {
@@ -110,7 +113,7 @@
   margin-top: -25px;
   margin-left: -15px;
   padding: 1em;
-  z-index: 99;
+  z-index: 9999;
   animation: zoom-in-out 3s linear infinite;
 }
 
