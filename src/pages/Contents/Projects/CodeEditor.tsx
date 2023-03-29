@@ -13,7 +13,7 @@ const Contents = () => {
         Code Editor
       </Text>
 
-      <Flex gap="10px">
+      <Flex gap="10px" direction={{ base: "column", sm: "row" }}>
         <Button variant="light" color="violet" className="githubLinkButton">
           Github Link
         </Button>

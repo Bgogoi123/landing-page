@@ -35,9 +35,11 @@ function App() {
       >
         <Flex
           direction="column"
-          sx={{
-            overflowX: "hidden",
-          }}
+          sx={
+            {
+              // overflowX: "hidden",
+            }
+          }
         >
           <TopNavigation />
           <Contents />

@@ -11,7 +11,7 @@ const Contents = () => {
     <Flex direction="column" gap="10px">
       <Text className="projectText">Digital Sketchbook</Text>
 
-      <Flex gap="10px">
+      <Flex gap="10px" direction={{ base: "column", sm: "row" }}>
         <Button variant="light" color="violet" className="githubLinkButton">
           Github Link
         </Button>
