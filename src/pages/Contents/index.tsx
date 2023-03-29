@@ -16,6 +16,8 @@ import Profile from "./Profile";
 import Projects from "./Projects";
 import WelcomePage from "./Welcome";
 import Waves from "./Welcome/Waves";
+import line from "../../assets/lotties/line.json";
+import Lottie from "lottie-react";
 
 const Contents = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -27,19 +29,6 @@ const Contents = () => {
   const { mouseOverSection, setMouseOverSection } = useContext(
     MouseOverSectionContext
   );
-  // const [mouseOverSection, setMouseOverSection] = useState<{
-  //   welcome: boolean;
-  //   pomodoro: boolean;
-  //   codeEditor: boolean;
-  //   sketchbook: boolean;
-  //   profile: boolean;
-  // }>({
-  //   welcome: false,
-  //   pomodoro: false,
-  //   codeEditor: false,
-  //   sketchbook: false,
-  //   profile: false,
-  // });
 
   useEffect(() => {
     handleMouseMove({ setMousePosition });
@@ -79,9 +68,18 @@ const Contents = () => {
           <Waves />
         </div>
         <Introduction />
+        {/* <div
+          style={{
+            backgroundColor: "#9d7ff5",
+          }}
+        >
+          <Lottie
+            animationData={line}
+          />
+        </div> */}
         <Projects />
         <Profile />
-        <Footer />
+        {/* <Footer /> */}
       </Flex>
     </MousePositionContext.Provider>
   );

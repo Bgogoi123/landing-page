@@ -1,25 +1,25 @@
 import { Flex, Text } from "@mantine/core";
 import { useContext, useEffect, useRef } from "react";
 import workingGirl from "../../../assets/lotties/working-girl.json";
-import codeEditor from "../../../assets/lotties/codeEditor.json";
 import ProjectsContainer from "../../../components/ProjectsContainer";
 import { MouseOverSectionContext } from "../../../context";
-import { codeEditorIcon, IconStyle } from "../Projects/projectStyles";
 import { handleMouseOverProfile } from "../functions";
+import { profileHeadingText, profileText } from "./profileStyles";
 
 const Contents = () => {
   return (
-    <Flex direction="column">
-      <Text className="projectText" sx={{ textAlign: "right" }}>
-        Hi! I am Samantha
-      </Text>
-      <Text sx={{ fontSize: "20px", textAlign: "right" }}>
-        I’ve been working as a social media manager for the past 7 years. I’ve
-        been working as a social media manager for the past 7 years. I’ve been
-        working as a social media manager for the past 7 years. I’ve been
-        working as a social media manager for the past 7 years. I’ve been
-        working as a social media manager for the past 7 years.
-      </Text>
+    <Flex direction="column" gap={"xl"}>
+      <Text sx={profileHeadingText}>Hi! I am Bharati Gogoi.</Text>
+      <Flex direction="column" justify="flex-end" align="flex-end">
+        <Text sx={profileText}>
+          I am an experienced frontend developer with a passion for creating
+          dynamic and user-friendly interfaces.
+        </Text>
+        <Text sx={profileText}>
+          Proficient in Javascript, ReactJS, typescript, CSS, mantine, and
+          material UI.
+        </Text>
+      </Flex>
     </Flex>
   );
 };
@@ -36,10 +36,19 @@ const Profile = () => {
   }, []);
 
   return (
-    <div ref={profileRef}>
+    <div
+      ref={profileRef}
+      style={{
+        height: "100px",
+      }}
+    >
       <ProjectsContainer
         lottieFile={workingGirl}
-        lottieFileStyle={codeEditorIcon}
+        lottieFileStyle={{
+          padding: "2%",
+          width: "20%",
+          height: "20%",
+        }}
         contents={<Contents />}
         justifyContents="flex-end"
       />

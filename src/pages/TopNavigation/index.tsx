@@ -29,22 +29,33 @@ const TopNavigation = () => {
       <div>
         <img src={logo} width={50} height={50} style={{ cursor: "pointer" }} />
       </div>
-      <Tabs
+      {/* <Tabs
         defaultValue="about"
         variant="outline"
         radius="xl"
         styles={{
           root: {
-            border: "1px dashed red",
+            // border: "1px dashed red",
+            borderBottom: "1px solid lightgreen",
           },
+          tab: {
+            // border: "1px solid #d9ccf5",
+            borderBottom: "1px solid red",
+          },
+          tabLabel: {
+            color: "#d9ccf5",
+            borderBottom: "1px solid lightblue",
+          },
+          // tabsList: { backgroundColor: "red" },
+          panel: { backgroundColor: "red" },
         }}
         // sx={{ border: "1px solid #fff" }}
       >
-        <Tabs.List styles={{}}>
+        <Tabs.List>
           <Tabs.Tab
             value="projects"
             onClick={() => setTab("projects")}
-            color="red`"
+            color="red"
           >
             Projects
           </Tabs.Tab>
@@ -52,7 +63,7 @@ const TopNavigation = () => {
             About
           </Tabs.Tab>
         </Tabs.List>
-      </Tabs>
+      </Tabs> */}
     </Flex>
   );
 };

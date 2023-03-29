@@ -3,17 +3,15 @@ import ProjectsContainer from "../../../components/ProjectsContainer";
 import { MouseOverSectionContext } from "../../../context";
 import hello from "../../../assets/lotties/hello.json";
 import { handleMouseOverWelcome } from "../functions";
-import { Text } from "@mantine/core";
+import { Flex, Text } from "@mantine/core";
+import { introContainer, introHeadingText, introText } from "./introStyles";
 
 export const Contents = () => {
   return (
-    <Text
-      sx={{
-        fontSize: "40px",
-      }}
-    >
-      Welcome to the Landing Page...
-    </Text>
+    <Flex direction="column">
+      <Text sx={introHeadingText}>Welcome to my profile.</Text>
+      <Text sx={introText}>Listing some of my projects in React JS</Text>
+    </Flex>
   );
 };
 
@@ -28,7 +26,7 @@ const Introduction = () => {
     });
   }, []);
   return (
-    <div ref={introRef} style={{ marginTop: "4em", paddingTop: "2.5em" }}>
+    <div ref={introRef} style={introContainer}>
       <ProjectsContainer
         contents={<Contents />}
         lottieFile={hello}
