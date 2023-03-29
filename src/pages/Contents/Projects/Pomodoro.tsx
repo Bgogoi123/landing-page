@@ -13,9 +13,11 @@ const Contents = () => {
       <Text className="projectText">Pomodoro ( With Task Management )</Text>
 
       <Flex gap="10px">
-        <Button variant="light" color="violet" className="githubLinkButton">
-          Github Link
-        </Button>
+        <a href="https://github.com/Bgogoi123/pomodoro">
+          <Button variant="light" color="violet" className="githubLinkButton">
+            Github Link
+          </Button>
+        </a>
         <Button variant="light" color="violet" className="demoLinkButton">
           Demo
         </Button>

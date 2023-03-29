@@ -1,4 +1,3 @@
-import "../../animations.css";
 import Icons from "./Icons";
 
 const WelcomePage = () => {

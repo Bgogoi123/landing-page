@@ -27,19 +27,6 @@ const Contents = () => {
   const { mouseOverSection, setMouseOverSection } = useContext(
     MouseOverSectionContext
   );
-  // const [mouseOverSection, setMouseOverSection] = useState<{
-  //   welcome: boolean;
-  //   pomodoro: boolean;
-  //   codeEditor: boolean;
-  //   sketchbook: boolean;
-  //   profile: boolean;
-  // }>({
-  //   welcome: false,
-  //   pomodoro: false,
-  //   codeEditor: false,
-  //   sketchbook: false,
-  //   profile: false,
-  // });
 
   useEffect(() => {
     handleMouseMove({ setMousePosition });
