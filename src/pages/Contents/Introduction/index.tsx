@@ -4,12 +4,17 @@ import { MouseOverSectionContext } from "../../../context";
 import hello from "../../../assets/lotties/hello.json";
 import { handleMouseOverWelcome } from "../functions";
 import { Flex, Text } from "@mantine/core";
-import { introContainer, introHeadingText, introText } from "./introStyles";
+import {
+  introContainer,
+  introHeadingText,
+  introRoot,
+  introText,
+} from "./introStyles";
 
 export const Contents = () => {
   return (
-    <Flex direction="column">
-      <Text sx={introHeadingText}>Welcome to my profile.</Text>
+    <Flex direction="column" sx={introContainer}>
+      {/* <Text sx={introHeadingText}>Welcome to my profile.</Text> */}
       <Text sx={introText}>Listing some of my projects in React JS</Text>
     </Flex>
   );
@@ -26,13 +31,16 @@ const Introduction = () => {
     });
   }, []);
   return (
-    <div ref={introRef} style={introContainer}>
+    <div ref={introRef} style={introRoot}>
       <ProjectsContainer
         contents={<Contents />}
         lottieFile={hello}
         lottieFileStyle={{
-          width: "25%",
-          height: "25%",
+          // paddingTop: "3em",
+          // marginBottom: "-50px",
+          // border: "1px solid black",
+          width: "300px",
+          height: "300px",
         }}
         justifyContents="center"
         disableHover={true}

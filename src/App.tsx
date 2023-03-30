@@ -33,14 +33,7 @@ function App() {
       <MouseOverSectionContext.Provider
         value={{ mouseOverSection, setMouseOverSection }}
       >
-        <Flex
-          direction="column"
-          sx={
-            {
-              // overflowX: "hidden",
-            }
-          }
-        >
+        <Flex direction="column">
           <TopNavigation />
           <Contents />
         </Flex>

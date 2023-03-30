@@ -17,7 +17,9 @@ import Projects from "./Projects";
 import WelcomePage from "./Welcome";
 import Waves from "./Welcome/Waves";
 import line from "../../assets/lotties/line.json";
+import lineAnimation from "../../assets/lotties/line-animation.json";
 import Lottie from "lottie-react";
+import AnimatedLine from "./AnimatedLine";
 
 const Contents = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -68,15 +70,7 @@ const Contents = () => {
           <Waves />
         </div>
         <Introduction />
-        {/* <div
-          style={{
-            backgroundColor: "#9d7ff5",
-          }}
-        >
-          <Lottie
-            animationData={line}
-          />
-        </div> */}
+        <AnimatedLine />
         <Projects />
         <Profile />
         {/* <Footer /> */}

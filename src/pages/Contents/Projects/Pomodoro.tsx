@@ -10,7 +10,9 @@ import { IconStyle } from "./projectStyles";
 const Contents = () => {
   return (
     <Flex direction="column" gap="10px">
-      <Text className="projectText">Pomodoro ( With Task Management )</Text>
+      <Text className="projectText">
+        Pomodoro <br />( With Task Management )
+      </Text>
 
       <Flex gap="10px" direction={{ base: "column", sm: "row" }}>
         <a href="https://github.com/Bgogoi123/pomodoro">
