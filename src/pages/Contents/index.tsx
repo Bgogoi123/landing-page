@@ -17,7 +17,9 @@ import Projects from "./Projects";
 import WelcomePage from "./Welcome";
 import Waves from "./Welcome/Waves";
 import line from "../../assets/lotties/line.json";
+import lineAnimation from "../../assets/lotties/line-animation.json";
 import Lottie from "lottie-react";
+import AnimatedLine from "./AnimatedLine";
 
 const Contents = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -60,7 +62,11 @@ const Contents = () => {
 
   return (
     <MousePositionContext.Provider value={{ mousePosition, setMousePosition }}>
-      <Flex direction="column" style={cursorStyle}>
+      <Flex
+        direction="column"
+        style={cursorStyle}
+        // className="hideOverflow"
+      >
         <div ref={cursorRef} className="movingCircle"></div>
 
         <div ref={welcomeContainerRef}>
@@ -68,15 +74,21 @@ const Contents = () => {
           <Waves />
         </div>
         <Introduction />
+        <AnimatedLine />
         {/* <div
           style={{
             backgroundColor: "#9d7ff5",
+            border: "5px solid #000",
           }}
         >
           <Lottie
-            animationData={line}
+            animationData={lineAnimation}
+            style={{
+              border: "5px solid red",
+            }}
           />
         </div> */}
+
         <Projects />
         <Profile />
         {/* <Footer /> */}

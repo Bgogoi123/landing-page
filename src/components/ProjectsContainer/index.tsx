@@ -19,7 +19,7 @@ const ProjectsContainer = ({
 }: IProjectsContainerProps) => {
   return (
     <Flex
-      direction="row"
+      direction={{ base: "column", sm: "row" }}
       justify={justifyContents}
       align={alignItems ?? "center"}
       gap={flexGap ?? "0"}

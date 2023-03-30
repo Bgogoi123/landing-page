@@ -1,8 +1,15 @@
 import { CSSObject } from "@mantine/core";
 
-export const introContainer: React.CSSProperties = {
-  marginTop: "3em",
-  paddingTop: "2em",
+export const introRoot: React.CSSProperties = {
+  marginTop: "2em",
+  paddingTop: "5em",
+  backgroundColor: "#9d7ff5",
+  zIndex: -1,
+};
+
+export const introContainer: CSSObject = {
+  // paddingTop: "3em",
+  // border: "2px solid red",
 };
 
 export const introHeadingText: CSSObject = {

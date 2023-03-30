@@ -16,6 +16,7 @@ const WelcomePage = () => {
       direction={{ base: "column", xs: "row" }}
       justify="space-around"
       align="center"
+      sx={{ backgroundColor: "#fff", zIndex: 70 }}
     >
       <Flex justify="flex-end" style={welcomeImageContainer}>
         <Lottie animationData={profile} style={welcomeImage} />
