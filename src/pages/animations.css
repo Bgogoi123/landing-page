@@ -164,10 +164,6 @@
   animation: slideFromRight 2s linear, fadeIn 2s linear;
 }
 
-.hideOverflow {
-  /* overflow: hidden; */
-}
-
 @keyframes slideFromRight {
   0% {
     right: -300px;

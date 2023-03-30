@@ -62,11 +62,7 @@ const Contents = () => {
 
   return (
     <MousePositionContext.Provider value={{ mousePosition, setMousePosition }}>
-      <Flex
-        direction="column"
-        style={cursorStyle}
-        // className="hideOverflow"
-      >
+      <Flex direction="column" style={cursorStyle}>
         <div ref={cursorRef} className="movingCircle"></div>
 
         <div ref={welcomeContainerRef}>
@@ -75,20 +71,6 @@ const Contents = () => {
         </div>
         <Introduction />
         <AnimatedLine />
-        {/* <div
-          style={{
-            backgroundColor: "#9d7ff5",
-            border: "5px solid #000",
-          }}
-        >
-          <Lottie
-            animationData={lineAnimation}
-            style={{
-              border: "5px solid red",
-            }}
-          />
-        </div> */}
-
         <Projects />
         <Profile />
         {/* <Footer /> */}
