@@ -62,8 +62,8 @@ const ProjectsContainer = ({
             animationData={lottieFile}
             loop={true}
             style={{
-              width: "30%",
-              height: "30%",
+              width: "60%",
+              height: "60%",
             }}
           />
           {contents}

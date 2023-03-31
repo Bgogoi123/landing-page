@@ -107,7 +107,6 @@ export const handleMouseOverWelcome = ({
 }: IHandleMouseOver) => {
   const onMouseOver = () => {
     setMouseOverSection({
-      topNavigation: false,
       welcome: true,
       pomodoro: false,
       codeEditor: false,
@@ -130,7 +129,6 @@ export const handleMouseOverPomodoro = ({
 }: IHandleMouseOver) => {
   const onMouseOver = () => {
     setMouseOverSection({
-      topNavigation: false,
       welcome: false,
       pomodoro: true,
       codeEditor: false,
@@ -143,7 +141,6 @@ export const handleMouseOverPomodoro = ({
   elementRef.current.addEventListener("mouseover", onMouseOver);
   elementRef.current.addEventListener("mouseout", () => {
     setMouseOverSection({
-      topNavigation: false,
       welcome: true,
       pomodoro: false,
       codeEditor: false,
@@ -163,7 +160,6 @@ export const handleMouseOverCodeEditor = ({
 }: IHandleMouseOver) => {
   const onMouseOver = () => {
     setMouseOverSection({
-      topNavigation: false,
       welcome: false,
       pomodoro: false,
       codeEditor: true,
@@ -186,7 +182,6 @@ export const handleMouseOverSketchbook = ({
 }: IHandleMouseOver) => {
   const onMouseOver = () => {
     setMouseOverSection({
-      topNavigation: false,
       welcome: false,
       pomodoro: false,
       codeEditor: false,
@@ -209,7 +204,6 @@ export const handleMouseOverProfile = ({
 }: IHandleMouseOver) => {
   const onMouseOver = () => {
     setMouseOverSection({
-      topNavigation: false,
       welcome: false,
       pomodoro: false,
       codeEditor: false,

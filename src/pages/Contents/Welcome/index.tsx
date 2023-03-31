@@ -6,8 +6,12 @@ import profile from "../../../assets/lotties/profile.json";
 import "../../animations.css";
 import {
   subTextContainer,
+  welcomeHeading,
+  welcomeHeadingMobileView,
   welcomeImage,
   welcomeImageContainer,
+  welcomeSubHeading,
+  welcomeSubHeadingMobileView,
   welcomeTextContainer,
 } from "./welcomeStyles";
 
@@ -17,7 +21,6 @@ const WelcomePage = () => {
   return (
     <Flex
       direction={{ base: "column", xs: "row" }}
-      justify="space-around"
       align="center"
       sx={[
         { backgroundColor: "#fff", zIndex: 70 },
@@ -45,22 +48,24 @@ const WelcomePage = () => {
             gap="lg"
             sx={{ position: "relative" }}
           >
-            <Text className="headingText">Welcome</Text>
+            <Text
+              className="headingText"
+              sx={matches ? welcomeHeading : welcomeHeadingMobileView}
+            >
+              Welcome
+            </Text>
             <div style={subTextContainer}>
-              <Text className="subText">Paragraph text content</Text>
+              <Text
+                className="subText"
+                sx={matches ? welcomeSubHeading : welcomeSubHeadingMobileView}
+              >
+                Paragraph text content
+              </Text>
             </div>
           </Flex>
         </Flex>
       </div>
     </Flex>
-
-    // original:
-    // <div className="welcomeContainer">
-    //   <Icons />
-    //   <div style={{ width: "100%" }}>
-    //     <b className="typing">Welcome</b>
-    //   </div>
-    // </div>
   );
 };
 

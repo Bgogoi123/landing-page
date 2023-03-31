@@ -6,6 +6,7 @@ import { useContext, useEffect, useRef } from "react";
 import { MouseOverSectionContext } from "../../../context";
 import { handleMouseOverSketchbook } from "../functions";
 import { useMediaQuery } from "@mantine/hooks";
+import { projectText } from "../styles";
 
 const Contents = () => {
   const matches = useMediaQuery("(min-width: 56.25em)");
@@ -16,7 +17,14 @@ const Contents = () => {
       gap="10px"
       align={matches ? "flex-start" : "center"}
     >
-      <Text className="projectText">Digital Sketchbook</Text>
+      <Text
+        sx={[
+          projectText,
+          matches ? { fontSize: "200%" } : { fontSize: "20px" },
+        ]}
+      >
+        Digital Sketchbook
+      </Text>
 
       <Flex gap="10px" direction={{ base: "column", sm: "row" }}>
         <Button variant="light" color="violet" className="githubLinkButton">

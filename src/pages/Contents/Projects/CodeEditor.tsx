@@ -5,6 +5,7 @@ import codeEditor from "../../../assets/lotties/codeEditor.json";
 import ProjectsContainer from "../../../components/ProjectsContainer";
 import { MouseOverSectionContext } from "../../../context";
 import { handleMouseOverCodeEditor } from "../functions";
+import { projectText } from "../styles";
 import { codeEditorIcon } from "./projectStyles";
 
 const Contents = () => {
@@ -12,7 +13,13 @@ const Contents = () => {
 
   return (
     <Flex direction="column" align={matches ? "flex-end" : "center"}>
-      <Text className="projectText" sx={{ textAlign: "right" }}>
+      <Text
+        sx={[
+          projectText,
+          { textAlign: "right" },
+          matches ? { fontSize: "200%" } : { fontSize: "20px" },
+        ]}
+      >
         Code Editor
       </Text>
 
