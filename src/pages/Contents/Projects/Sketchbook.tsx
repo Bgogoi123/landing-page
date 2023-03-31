@@ -28,10 +28,12 @@ const Contents = () => {
 
       <Flex gap="10px" direction={{ base: "column", sm: "row" }}>
         <Button variant="light" color="violet" className="githubLinkButton">
-          Github Link
+          <a href="https://github.com/Bgogoi123/visualization-with-d3">
+            Github Link
+          </a>
         </Button>
         <Button variant="light" color="violet" className="demoLinkButton">
-          Demo
+          <a href="https://capable-dragon-45716a.netlify.app/">Demo</a>
         </Button>
       </Flex>
     </Flex>
