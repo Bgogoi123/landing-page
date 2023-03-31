@@ -4,10 +4,6 @@ export interface IProjectsContainerProps {
   justifyContents: TJustifyContents;
   alignItems?: TAlignItems;
   flexGap?: TFlexGap;
-  styles?: {
-    [key: string]: string | number;
-  };
-  backgroundColor?: string;
   contents: JSX.Element;
   lottieFile?: unknown;
   lottieFileStyle?: React.CSSProperties;

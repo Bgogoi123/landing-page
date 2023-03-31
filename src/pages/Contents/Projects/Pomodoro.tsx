@@ -1,4 +1,5 @@
 import { Button, Flex, Text } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { useContext, useEffect, useRef } from "react";
 import clock from "../../../assets/lotties/clock.json";
 import ProjectsContainer from "../../../components/ProjectsContainer";
@@ -8,9 +9,14 @@ import { handleMouseOverPomodoro } from "../functions";
 import { IconStyle } from "./projectStyles";
 
 const Contents = () => {
+  const matches = useMediaQuery("(min-width: 56.25em)");
+
   return (
-    <Flex direction="column" gap="10px">
-      <Text className="projectText">
+    <Flex direction="column" gap="10px" justify="center" align="center">
+      <Text
+        className="projectText"
+        sx={!matches ? { textAlign: "center" } : { textAlign: "left" }}
+      >
         Pomodoro <br />( With Task Management )
       </Text>
 

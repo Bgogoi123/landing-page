@@ -1,4 +1,5 @@
 import { Button, Flex, Text } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { useContext, useEffect, useRef } from "react";
 import codeEditor from "../../../assets/lotties/codeEditor.json";
 import ProjectsContainer from "../../../components/ProjectsContainer";
@@ -7,8 +8,10 @@ import { handleMouseOverCodeEditor } from "../functions";
 import { codeEditorIcon } from "./projectStyles";
 
 const Contents = () => {
+  const matches = useMediaQuery("(min-width: 56.25em)");
+
   return (
-    <Flex direction="column">
+    <Flex direction="column" align={matches ? "flex-end" : "center"}>
       <Text className="projectText" sx={{ textAlign: "right" }}>
         Code Editor
       </Text>
