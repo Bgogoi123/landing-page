@@ -8,7 +8,6 @@ export const welcomeImage: React.CSSProperties = {
 };
 
 export const welcomeTextContainer: React.CSSProperties = {
-  width: "100%",
   padding: "2em",
   position: "relative",
 };
