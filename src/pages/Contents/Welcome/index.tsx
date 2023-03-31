@@ -1,4 +1,5 @@
 import { Flex, Text } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import Lottie from "lottie-react";
 import codeMonitor from "../../../assets/images/codeMonitor.svg";
 import profile from "../../../assets/lotties/profile.json";
@@ -11,12 +12,17 @@ import {
 } from "./welcomeStyles";
 
 const WelcomePage = () => {
+  const matches = useMediaQuery("(min-width: 56.25em)");
+
   return (
     <Flex
       direction={{ base: "column", xs: "row" }}
       justify="space-around"
       align="center"
-      sx={{ backgroundColor: "#fff", zIndex: 70 }}
+      sx={[
+        { backgroundColor: "#fff", zIndex: 70 },
+        !matches ? { padding: "3em" } : {},
+      ]}
     >
       <Flex justify="flex-end" style={welcomeImageContainer}>
         <Lottie animationData={profile} style={welcomeImage} />

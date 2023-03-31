@@ -5,7 +5,7 @@ import circle from "../../assets/images/circle.svg";
 import code from "../../assets/images/code.svg";
 import { MouseOverSectionContext, MousePositionContext } from "../../context";
 import "../animations.css";
-import Footer from "../Footer";
+import AnimatedLine from "./AnimatedLine";
 import {
   handleCursorAnimation,
   handleMouseMove,
@@ -16,10 +16,6 @@ import Profile from "./Profile";
 import Projects from "./Projects";
 import WelcomePage from "./Welcome";
 import Waves from "./Welcome/Waves";
-import line from "../../assets/lotties/line.json";
-import lineAnimation from "../../assets/lotties/line-animation.json";
-import Lottie from "lottie-react";
-import AnimatedLine from "./AnimatedLine";
 
 const Contents = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -73,7 +69,6 @@ const Contents = () => {
         <AnimatedLine />
         <Projects />
         <Profile />
-        {/* <Footer /> */}
       </Flex>
     </MousePositionContext.Provider>
   );

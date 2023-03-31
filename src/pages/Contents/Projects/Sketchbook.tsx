@@ -5,10 +5,17 @@ import { IconStyle } from "./projectStyles";
 import { useContext, useEffect, useRef } from "react";
 import { MouseOverSectionContext } from "../../../context";
 import { handleMouseOverSketchbook } from "../functions";
+import { useMediaQuery } from "@mantine/hooks";
 
 const Contents = () => {
+  const matches = useMediaQuery("(min-width: 56.25em)");
+
   return (
-    <Flex direction="column" gap="10px">
+    <Flex
+      direction="column"
+      gap="10px"
+      align={matches ? "flex-start" : "center"}
+    >
       <Text className="projectText">Digital Sketchbook</Text>
 
       <Flex gap="10px" direction={{ base: "column", sm: "row" }}>
