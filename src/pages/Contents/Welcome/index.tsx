@@ -35,7 +35,7 @@ const WelcomePage = () => {
             xs: "row",
           }}
           justify="center"
-          align="flex-start"
+          align={matches ? "flex-start" : "center"}
         >
           <img src={codeMonitor} className="codingMonitor" />
           <Flex
