@@ -6,6 +6,7 @@ import ProjectsContainer from "../../../components/ProjectsContainer";
 import { MouseOverSectionContext } from "../../../context";
 import "../../animations.css";
 import { handleMouseOverPomodoro } from "../functions";
+import { projectText } from "../styles";
 import { IconStyle } from "./projectStyles";
 
 const Contents = () => {
@@ -14,8 +15,13 @@ const Contents = () => {
   return (
     <Flex direction="column" gap="10px" justify="center" align="center">
       <Text
-        className="projectText"
-        sx={!matches ? { textAlign: "center" } : { textAlign: "left" }}
+        sx={[
+          projectText,
+          matches ? { textAlign: "left" } : { textAlign: "center" },
+          matches
+            ? { fontSize: "200%" }
+            : { fontSize: "20px", lineHeight: "30px" },
+        ]}
       >
         Pomodoro <br />( With Task Management )
       </Text>

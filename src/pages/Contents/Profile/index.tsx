@@ -5,6 +5,7 @@ import workingGirl from "../../../assets/lotties/working-girl.json";
 import ProjectsContainer from "../../../components/ProjectsContainer";
 import { MouseOverSectionContext } from "../../../context";
 import { handleMouseOverProfile } from "../functions";
+import { projectText } from "../styles";
 import {
   profileHeadingText,
   profileLottieStyle,
@@ -32,15 +33,40 @@ const Contents = () => {
   } else {
     return (
       <Flex direction="column" gap={"xl"}>
-        <Text sx={{ textAlign: "center", fontSize: "40px" }}>
-          Hi! I am Bharati Gogoi.
+        <Text
+          sx={[
+            projectText,
+            { textAlign: "center" },
+            matches
+              ? { fontSize: "200%" }
+              : { fontSize: "25px", lineHeight: "30px" },
+          ]}
+          //  sx={{ textAlign: "center", fontSize: "40px" }}
+        >
+          Hi! I am Bharati Gogoi
         </Text>
         <Flex direction="column" justify="center" align="center">
-          <Text sx={profileText}>
+          <Text
+            //  sx={profileText}
+            sx={[
+              projectText,
+              matches
+                ? { fontSize: "200%" }
+                : { fontSize: "15px", lineHeight: "25px" },
+            ]}
+          >
             I am an experienced frontend developer with a passion for creating
             dynamic and user-friendly interfaces.
           </Text>
-          <Text sx={profileText}>
+          <Text
+            //  sx={profileText}
+            sx={[
+              projectText,
+              matches
+                ? { fontSize: "200%" }
+                : { fontSize: "15px", lineHeight: "25px" },
+            ]}
+          >
             Proficient in Javascript, ReactJS, typescript, CSS, mantine, and
             material UI.
           </Text>

@@ -13,7 +13,6 @@ export interface IProjectsContainerProps {
 export interface IHandleCursorAnimation {
   element: HTMLDivElement | null;
   mouseOverSection: {
-    topNavigation: boolean;
     welcome: boolean;
     pomodoro: boolean;
     codeEditor: boolean;
@@ -29,7 +28,6 @@ export interface IHandleCursorAnimation {
 export interface IHandleMouseOver {
   setMouseOverSection: (
     value: React.SetStateAction<{
-      topNavigation: boolean;
       welcome: boolean;
       pomodoro: boolean;
       codeEditor: boolean;
