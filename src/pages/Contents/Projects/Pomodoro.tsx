@@ -27,13 +27,13 @@ const Contents = () => {
       </Text>
 
       <Flex gap="10px" direction={{ base: "column", sm: "row" }}>
-        <a href="https://github.com/Bgogoi123/pomodoro">
-          <Button variant="light" color="violet" className="githubLinkButton">
-            Github Link
-          </Button>
-        </a>
+        <Button variant="light" color="violet" className="githubLinkButton">
+          <a href="https://github.com/Bgogoi123/pomodoro">Github Link</a>
+        </Button>
         <Button variant="light" color="violet" className="demoLinkButton">
-          Demo
+          <a href="https://main--celebrated-licorice-c76d3d.netlify.app/">
+            Demo
+          </a>
         </Button>
       </Flex>
     </Flex>

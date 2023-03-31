@@ -1,4 +1,5 @@
 import { Flex } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { useContext, useEffect, useRef, useState } from "react";
 import brush from "../../assets/images/brush.svg";
 import circle from "../../assets/images/circle.svg";
@@ -10,6 +11,7 @@ import {
   handleCursorAnimation,
   handleMouseMove,
   handleMouseOverWelcome,
+  handleRemoveCursorAnimation,
 } from "./functions";
 import Introduction from "./Introduction";
 import Profile from "./Profile";
@@ -20,6 +22,7 @@ import Waves from "./Welcome/Waves";
 const Contents = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const welcomeContainerRef = useRef<HTMLDivElement>(null);
+  const matches = useMediaQuery("(min-width: 56.25em)");
 
   const element = cursorRef.current;
   const [cursorStyle, setCursorStyle] = useState<React.CSSProperties>({});
@@ -39,14 +42,21 @@ const Contents = () => {
   }, [mousePosition]);
 
   useEffect(() => {
-    handleCursorAnimation({
-      element,
-      mouseOverSection,
-      setCursorStyle,
-      circle,
-      code,
-      brush,
-    });
+    if (matches) {
+      handleCursorAnimation({
+        element,
+        mouseOverSection,
+        setCursorStyle,
+        circle,
+        code,
+        brush,
+      });
+    } else {
+      handleRemoveCursorAnimation({ element });
+      setCursorStyle({
+        cursor: "default",
+      });
+    }
   }, [mouseOverSection]);
 
   useEffect(() => {

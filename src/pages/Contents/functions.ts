@@ -12,7 +12,6 @@ export const handleRemoveCursorAnimation = ({
   element.classList.remove("codeEditorCursor");
   element.classList.remove("sketchbookCursor");
   element.classList.remove("pomodoroCursor");
-  element.style.cursor = "default";
 };
 
 export const handleCursorAnimation = ({
