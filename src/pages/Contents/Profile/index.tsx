@@ -5,6 +5,9 @@ import workingGirl from "../../../assets/lotties/working-girl.json";
 import ProjectsContainer from "../../../components/ProjectsContainer";
 import { MouseOverSectionContext } from "../../../context";
 import { handleMouseOverProfile } from "../functions";
+import email from "../../../assets/images/email.svg";
+import linkedin from "../../../assets/images/linkedin.svg";
+
 import { projectText } from "../styles";
 import {
   profileHeadingText,
@@ -14,6 +17,10 @@ import {
 
 const Contents = () => {
   const matches = useMediaQuery("(min-width: 56.25em)");
+
+  const redirectToLinkedin = () => {};
+  const displayEmailID = () => {};
+
   if (matches) {
     return (
       <Flex direction="column" gap={"xl"}>
@@ -26,6 +33,29 @@ const Contents = () => {
           <Text sx={profileText}>
             Proficient in Javascript, ReactJS, typescript, CSS, mantine, and
             material UI.
+          </Text>
+        </Flex>
+        <Flex direction="row" justify="flex-end" align="center">
+          <Text
+            sx={{
+              textAlign: "center",
+              width: "50%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            <img
+              src={linkedin}
+              style={{ cursor: "pointer" }}
+              onClick={redirectToLinkedin}
+            />
+            <img
+              src={email}
+              style={{ cursor: "pointer" }}
+              onClick={displayEmailID}
+            />
           </Text>
         </Flex>
       </Flex>
