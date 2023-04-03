@@ -18,3 +18,22 @@ export const profileLottieStyle: React.CSSProperties = {
   width: "20%",
   height: "20%",
 };
+
+export const cursorPointer: React.CSSProperties = {
+  cursor: "pointer",
+};
+
+export const popOverContainer: CSSObject = {
+  width: "50%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "10px",
+  textAlign: "center",
+  padding: "1em",
+};
+
+export const popOverText: CSSObject = {
+  color: "#000",
+  fontSize: "13px",
+};
