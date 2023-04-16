@@ -1,7 +1,8 @@
 import { CSSObject } from "@mantine/core";
 
 export const profileHeadingText: CSSObject = {
-  textAlign: "right",
+  paddingRight: "0.5em",
+  textAlign: "center",
   fontSize: "40px",
   lineHeight: "45px",
   color: "#fff",

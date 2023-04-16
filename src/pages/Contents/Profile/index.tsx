@@ -23,12 +23,12 @@ const Contents = () => {
   const matches = useMediaQuery("(min-width: 56.25em)");
 
   const redirectToLinkedin = () => {
-    // redirect to linkedin
+    window.open("https://www.linkedin.com/in/bharatigogoi/", "_blank");
   };
 
   if (matches) {
     return (
-      <Flex direction="column" gap={"xl"}>
+      <Flex direction="column" gap={"xl"} align="flex-end">
         <Text sx={profileHeadingText}>Hi! I am Bharati Gogoi.</Text>
         <Flex direction="column" justify="flex-end" align="flex-end">
           <Text sx={profileText}>
@@ -36,8 +36,8 @@ const Contents = () => {
             dynamic and user-friendly interfaces.
           </Text>
           <Text sx={profileText}>
-            Proficient in Javascript, ReactJS, typescript, CSS, mantine, and
-            material UI.
+            Proficient in Javascript, ReactJS, Typescript, D3, CSS, Mantine, and
+            Material UI.
           </Text>
         </Flex>
         <Flex direction="row" justify="flex-end" align="center">

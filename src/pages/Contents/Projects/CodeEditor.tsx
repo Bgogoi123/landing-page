@@ -7,6 +7,7 @@ import { MouseOverSectionContext } from "../../../context";
 import { handleMouseOverCodeEditor } from "../functions";
 import { projectText } from "../styles";
 import { codeEditorIcon } from "./projectStyles";
+import { openNewTab } from "./openNewTab";
 
 const Contents = () => {
   const matches = useMediaQuery("(min-width: 56.25em)");
@@ -24,11 +25,25 @@ const Contents = () => {
       </Text>
 
       <Flex gap="10px" direction={{ base: "column", sm: "row" }}>
-        <Button variant="light" color="violet" className="githubLinkButton">
-          <a href="https://github.com/Bgogoi123/Code-Editor.git">Github Link</a>
+        <Button
+          variant="light"
+          color="violet"
+          className="githubLinkButton"
+          onClick={() =>
+            openNewTab("https://github.com/Bgogoi123/Code-Editor.git")
+          }
+        >
+          Github Link
         </Button>
-        <Button variant="light" color="violet" className="demoLinkButton">
-          <a href="https://main--cheerful-khapse-0aa914.netlify.app/">Demo</a>
+        <Button
+          variant="light"
+          color="violet"
+          className="demoLinkButton"
+          onClick={() =>
+            openNewTab("https://main--cheerful-khapse-0aa914.netlify.app")
+          }
+        >
+          Demo
         </Button>
       </Flex>
     </Flex>
