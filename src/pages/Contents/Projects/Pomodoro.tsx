@@ -8,6 +8,7 @@ import "../../animations.css";
 import { handleMouseOverPomodoro } from "../functions";
 import { projectText } from "../styles";
 import { IconStyle } from "./projectStyles";
+import { openNewTab } from "./openNewTab";
 
 const Contents = () => {
   const matches = useMediaQuery("(min-width: 56.25em)");
@@ -27,13 +28,23 @@ const Contents = () => {
       </Text>
 
       <Flex gap="10px" direction={{ base: "column", sm: "row" }}>
-        <Button variant="light" color="violet" className="githubLinkButton">
-          <a href="https://github.com/Bgogoi123/pomodoro">Github Link</a>
+        <Button
+          variant="light"
+          color="violet"
+          className="githubLinkButton"
+          onClick={() => openNewTab("https://github.com/Bgogoi123/pomodoro")}
+        >
+          Github Link
         </Button>
-        <Button variant="light" color="violet" className="demoLinkButton">
-          <a href="https://main--celebrated-licorice-c76d3d.netlify.app/">
-            Demo
-          </a>
+        <Button
+          variant="light"
+          color="violet"
+          className="demoLinkButton"
+          onClick={() =>
+            openNewTab("https://main--celebrated-licorice-c76d3d.netlify.app/")
+          }
+        >
+          Demo
         </Button>
       </Flex>
     </Flex>

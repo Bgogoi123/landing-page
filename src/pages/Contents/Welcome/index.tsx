@@ -59,7 +59,7 @@ const WelcomePage = () => {
                 className="subText"
                 sx={matches ? welcomeSubHeading : welcomeSubHeadingMobileView}
               >
-                Paragraph text content
+                to my Portfolio!
               </Text>
             </div>
           </Flex>

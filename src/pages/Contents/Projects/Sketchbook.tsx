@@ -7,6 +7,7 @@ import { MouseOverSectionContext } from "../../../context";
 import { handleMouseOverSketchbook } from "../functions";
 import { useMediaQuery } from "@mantine/hooks";
 import { projectText } from "../styles";
+import { openNewTab } from "./openNewTab";
 
 const Contents = () => {
   const matches = useMediaQuery("(min-width: 56.25em)");
@@ -27,13 +28,25 @@ const Contents = () => {
       </Text>
 
       <Flex gap="10px" direction={{ base: "column", sm: "row" }}>
-        <Button variant="light" color="violet" className="githubLinkButton">
-          <a href="https://github.com/Bgogoi123/visualization-with-d3">
-            Github Link
-          </a>
+        <Button
+          variant="light"
+          color="violet"
+          className="githubLinkButton"
+          onClick={() =>
+            openNewTab("https://github.com/Bgogoi123/visualization-with-d3")
+          }
+        >
+          Github Link
         </Button>
-        <Button variant="light" color="violet" className="demoLinkButton">
-          <a href="https://capable-dragon-45716a.netlify.app/">Demo</a>
+        <Button
+          variant="light"
+          color="violet"
+          className="demoLinkButton"
+          onClick={() =>
+            openNewTab("https://capable-dragon-45716a.netlify.app/")
+          }
+        >
+          Demo
         </Button>
       </Flex>
     </Flex>
